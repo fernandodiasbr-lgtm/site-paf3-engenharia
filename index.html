@@ -721,10 +721,7 @@
                     </div>
                 </div>
                 <div class="contato-form">
-                    <form id="form-contato" action="https://formsubmit.co/contato@paf3engenharia.com.br" method="POST">
-                        <input type="hidden" name="_captcha" value="false">
-                        <input type="hidden" name="_next" value="https://paf3-engenharia.onrender.com/obrigado.html">
-                        
+                    <form id="form-contato">
                         <div class="form-group">
                             <input type="text" name="nome" placeholder="Seu Nome" required>
                         </div>
@@ -842,6 +839,44 @@
             });
         }
 
+        // FORMULÁRIO DE CONTATO
+        document.getElementById('form-contato').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Mostrar loading
+            const btn = this.querySelector('button[type="submit"]');
+            const originalText = btn.textContent;
+            btn.textContent = 'Enviando...';
+            btn.disabled = true;
+            
+            // Coletar dados do formulário
+            const formData = new FormData(this);
+            
+            // Enviar para FormSubmit
+            fetch('https://formsubmit.co/ajax/contato@paf3engenharia.com.br', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert('✅ Mensagem enviada com sucesso! Entraremos em contato em breve.');
+                    document.getElementById('form-contato').reset();
+                } else {
+                    alert('❌ Erro ao enviar mensagem. Tente novamente.');
+                }
+            })
+            .catch(error => {
+                alert('❌ Erro de conexão. Tente novamente.');
+                console.error('Error:', error);
+            })
+            .finally(() => {
+                // Restaurar botão
+                btn.textContent = originalText;
+                btn.disabled = false;
+            });
+        });
+
         // Iniciar animação quando a seção sobre estiver visível
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -856,4 +891,3 @@
     </script>
 </body>
 </html>
-
