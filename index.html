@@ -550,6 +550,7 @@
                     <ul>
                         <li><a href="#inicio">Início</a></li>
                         <li><a href="#servicos">Serviços</a></li>
+                        <li><a href="#downloads">Downloads</a></li>
                         <li><a href="#sobre">Sobre</a></li>
                         <li><a href="#contato">Contato</a></li>
                     </ul>
@@ -632,6 +633,51 @@
         </div>
     </section>
 
+    <!-- DOWNLOADS -->
+    <section id="downloads" class="downloads">
+        <div class="container">
+            <div class="section-title">
+                <h2>Downloads</h2>
+                <p>Acesse nossas apostilas e materiais informativos.</p>
+            </div>
+
+            <div class="downloads-grid">
+                <div class="download-card">
+                    <div class="download-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <h3>Apostila NR-10</h3>
+                    <p>
+                        Material informativo sobre segurança em instalações
+                        e serviços em eletricidade.
+                    </p>
+                    <a href="pdf/Apostila_NR_10.pdf"
+                       download
+                       class="btn">
+                        <i class="fas fa-download"></i>
+                        Baixar apostila
+                    </a>
+                </div>
+
+                <div class="download-card">
+                    <div class="download-icon">
+                        <i class="fas fa-solar-panel"></i>
+                    </div>
+                    <h3>Apostila Lei 14.300/22</h3>
+                    <p>
+                        Material informativo sobre o marco legal da
+                        microgeração e minigeração distribuída.
+                    </p>
+                    <a href="pdf/Apostila_Lei_14300_22.pdf"
+                       download
+                       class="btn">
+                        <i class="fas fa-download"></i>
+                        Baixar apostila
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
     <!-- SOBRE -->
     <section id="sobre" class="sobre">
         <div class="container">
@@ -671,7 +717,55 @@
             </div>
         </div>
     </section>
+ /* DOWNLOADS */
+        .downloads {
+            padding: 100px 0;
+            background-color: #f8f9fa;
+        }
 
+        .downloads-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .download-card {
+            background: white;
+            border-radius: 8px;
+            padding: 35px 25px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border-top: 4px solid var(--secondary);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .download-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .download-icon {
+            font-size: 3rem;
+            color: var(--secondary);
+            margin-bottom: 20px;
+        }
+
+        .download-card h3 {
+            color: var(--primary);
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+        }
+
+        .download-card p {
+            color: var(--gray);
+            margin-bottom: 25px;
+        }
+
+        .download-card .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
     <!-- CONTATO -->
     <section id="contato" class="contato">
         <div class="container">
@@ -779,6 +873,7 @@
                     <h3>Links Rápidos</h3>
                     <a href="#inicio">Início</a>
                     <a href="#servicos">Serviços</a>
+                    <a href="#downloads">Downloads</a>
                     <a href="#sobre">Sobre</a>
                     <a href="#contato">Contato</a>
                 </div>
